@@ -2,10 +2,10 @@
 import tensorflow as tf
 
 import cProfile
-tf.executing_eagerly() #矩阵乘法
+tf.executing_eagerly()
 
 x = [[2.]]
-m = tf.matmul(x,x)
+m = tf.matmul(x,x) #矩阵乘法
 print("x matmul x = {}".format(m))
 
 a = tf.constant([[1,2],
@@ -21,7 +21,7 @@ print(b)
 print(a*b) #点对点的乘法
 
 
-print(tf.matmul(a,b))
+print(tf.matmul(a,b)) #矩阵乘法
 
 import numpy as np
 
