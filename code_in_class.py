@@ -1,14 +1,8 @@
-from __future__ import absolute_import, division, print_function, unicode_literals
-import os
-try:
-  # %tensorflow_version only exists in Colab.
-%tensorflow_version 2.x  #gpu
-except Exception:
-  pass
+
 import tensorflow as tf
 
 import cProfile
-tf.executing_eagerly()
+tf.executing_eagerly() #矩阵乘法
 
 x = [[2.]]
 m = tf.matmul(x,x)
@@ -19,19 +13,19 @@ a = tf.constant([[1,2],
 print(a)
 
 #Broadcasting
-b = tf.add(a,1)
+b = tf.add(a,1) #会把1展开为矩阵
 print(b)
 
 
 #element-wise multiplication
-print(a*b)
+print(a*b) #点对点的乘法
 
 
 print(tf.matmul(a,b))
 
 import numpy as np
 
-c = np.multiply(a,b)
+c = np.multiply(a,b) #tensor&numpy转换、计算
 print(c)
 
 
@@ -48,6 +42,11 @@ with tf.GradientTape() as tape:
     loss = w * w
 grad = tape.gradient(loss,w)
 print(grad)
+
+
+'''
+train a model
+'''
 
 (x_train,y_train),(x_test,y_test) = tf.keras.datasets.mnist.load_data()
 x_train = x_train[:10000,:,:]
