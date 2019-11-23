@@ -94,7 +94,7 @@ opt = tf.keras.optimizers.Adam(lr=0.0001)
 model.compile(loss='categorical_crossentropy',optimizer=opt,metrics=['accuracy'])
 
 print("train____________")
-model.fit(x_train,y_train,epochs=600,batch_size=128,)
+model.fit(x_train,y_train,epochs=70,batch_size=128,)
 print("test_____________")
 loss,acc=model.evaluate(x_test,y_test)
 print("loss=",loss)
